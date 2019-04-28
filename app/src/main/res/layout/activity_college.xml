@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+    tools:context="com.example.collegeapp.ui.CollegeActivity">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="ADD COLLEGE"
+        android:textColor="@color/colorBlack"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorBlack"
+        android:hint="Enter College Name" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorBlack"
+        android:hint="Enter College Email" />
+
+    <EditText
+        android:id="@+id/editTextCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Enter City"
+        android:textColor="@color/colorBlack"
+
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Enter State"
+        android:textColor="@color/colorBlack"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorBlack"
+        android:text="Add College" />
+
+</LinearLayout>

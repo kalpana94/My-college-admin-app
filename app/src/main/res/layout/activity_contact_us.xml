@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+
+    tools:context="com.example.collegeapp.ui.ContactUsActivity">
+
+
+    <TextView
+        android:id="@+id/contactUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:text="CONTACT INFORMATION"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:inputType="textPersonName"
+        android:hint="Address" />
+
+    <EditText
+        android:id="@+id/editTextWebsite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:inputType="textEmailAddress"
+        android:hint="Website" />
+
+    <EditText
+        android:id="@+id/editTextemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:inputType="textEmailAddress"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/editTextphone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:inputType="phone"
+        android:hint="Phone" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:text="Save"
+        android:background="@color/colorPrimary"
+        android:textStyle="bold"/>
+</LinearLayout>

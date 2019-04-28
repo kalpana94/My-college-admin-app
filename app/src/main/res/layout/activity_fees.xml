@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+
+    tools:context="com.example.collegeapp.ui.feesActivity">
+
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:gravity="center"
+        android:text="FEES INFO"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/newStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:text="New Student" />
+
+    <TextView
+        android:id="@+id/transferStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:text="Transfer Student" />
+
+    <Button
+        android:id="@+id/buttonsavefee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:text="Save Fees"
+        android:background="@color/colorPrimary"
+        android:textStyle="bold"/>
+
+</LinearLayout>
