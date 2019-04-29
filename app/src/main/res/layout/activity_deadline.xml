@@ -51,7 +51,7 @@
         tools:layout_editor_absoluteX="135dp"
         tools:layout_editor_absoluteY="166dp" />
     <Button
-        android:id="@+id/buttonview"
+        android:id="@+id/deadlineview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

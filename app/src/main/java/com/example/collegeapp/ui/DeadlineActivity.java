@@ -30,7 +30,7 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DeadlineActivity extends AppCompatActivity {
+public class DeadlineActivity extends AppCompatActivity  implements View.OnClickListener{
      @BindView(R.id.buttonview)
      Button btnview;
 
@@ -49,22 +49,20 @@ public class DeadlineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deadline);
+        getSupportActionBar().setTitle("E-College");
         ButterKnife.bind(this);
-        txtNewdeadline.setOnClickListener(clickListener);
-        txtTransferdeadline.setOnClickListener(clickListener);
+
+        txtNewdeadline.setOnClickListener(this);
+        txtTransferdeadline.setOnClickListener(this);
         deadline=new Deadline();
+
         auth=FirebaseAuth.getInstance();
         db=FirebaseFirestore.getInstance();
         user=auth.getCurrentUser();
-        btnview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deadline.newDeadline = txtNewdeadline.getText().toString();
-                deadline.transferdeadline = txtTransferdeadline.getText().toString();
-                //saveDate();
-            }
-        });
+        btnview.setOnClickListener(this);
+
         saveDeadlineInDb();
+        btnview.setOnClickListener(this);
     }
     DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
         @Override
@@ -72,32 +70,31 @@ public class DeadlineActivity extends AppCompatActivity {
             String date = year+"/"+(month+1)+"/"+dayOfMonth;
             txtNewdeadline.setText(date);
             txtTransferdeadline.setText(date);
-        }
-    };
-   /* void saveDate(){
-    user= auth.getCurrentUser();
-        db.collection("Colleges").document(user.getUid()).set(colleges)
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-        @Override
-        public void onComplete(@NonNull Task<Void> task) {
-            Toast.makeText(RegistrationActivity.this, colleges.name + " Registered Successful", Toast.LENGTH_LONG).show();
-            progressDialog.dismiss();
-            //Intent intent = new Intent(RegisterActivity.this, SuccessActivity.class);
-            Intent intent = new Intent(RegistrationActivity.this, HomeActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    });
-}*/
-    View.OnClickListener clickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            showdatepickerDialog();
-            //ViewShowDeadline();
+            int id=view.getId();
+            if (id==R.id.NewDeadline){
+                txtNewdeadline.setText(date);
+            }else{
+                txtTransferdeadline.setText(date);
+            }
 
         }
     };
-    void showdatepickerDialog(){
+    void saveDate(){
+    user= auth.getCurrentUser();
+        db.collection("Colleges").document(user.getUid()).collection("collegeInfo").document(user.getUid()).collection("deadline").add(deadline)
+                .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        Toast.makeText(DeadlineActivity.this, " Details saved Successful", Toast.LENGTH_LONG).show();
+                        //progressDialog.dismiss();
+                        //Intent intent = new Intent(RegisterActivity.this, SuccessActivity.class);
+                        Intent intent = new Intent(DeadlineActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+        }
+        void showdatepickerDialog(){
         Calendar calendar = Calendar.getInstance();
         int dd = calendar.get(Calendar.DAY_OF_MONTH);
         int mm = calendar.get(Calendar.MONTH);
@@ -105,26 +102,6 @@ public class DeadlineActivity extends AppCompatActivity {
         datePickerDialog = new DatePickerDialog(this, onDateSetListener, yy, mm, dd);
         datePickerDialog.show();
     }
-  /* void ViewShowDeadline(){
-       NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-       if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-           NotificationChannel notificationChannel = new NotificationChannel("myId","myName",NotificationManager.IMPORTANCE_HIGH);
-           notificationManager.createNotificationChannel(notificationChannel);
-       }
-       NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"myId");
-       builder.setSmallIcon(R.drawable.ic_email);
-       builder.setContentTitle("This is Title");
-       builder.setContentText("This is Text");
-       Intent intent = new Intent(DeadlineActivity.this,InfoActivity .class);
-       PendingIntent pendingIntent = PendingIntent.getActivity(this, 111, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-       builder.setContentIntent(pendingIntent);
-       builder.setStyle(new NotificationCompat.BigTextStyle());
-       builder.addAction(android.R.drawable.ic_menu_add, "Add",pendingIntent);
-       builder.addAction(android.R.drawable.ic_menu_delete, "Delete",pendingIntent);
-       Notification notification = builder.build();
-       notificationManager.notify(101, notification);
-
-   }*/
   void saveDeadlineInDb(){
       db.collection("Info").document(user.getUid()).collection("Deadline").add(deadline)
               .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
@@ -137,4 +114,22 @@ public class DeadlineActivity extends AppCompatActivity {
               });
 
   }
+
+    @Override
+    public void onClick(View v) {
+        int id=v.getId();
+        switch (id) {
+            case R.id.NewDeadline:
+                showdatepickerDialog();
+                break;
+            case R.id.transferDeadline:
+                showdatepickerDialog();
+                break;
+            case R.id.deadlineview:
+                deadline.newDeadline = txtNewdeadline.getText().toString();
+                deadline.transferdeadline = txtTransferdeadline.getText().toString();
+                saveDate();
+                break;
+        }
+    }
 }

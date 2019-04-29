@@ -159,6 +159,7 @@ public class StudentProfile extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_profile);
+        getSupportActionBar().setTitle("E-College");
         initViews();
         fetchStudentDetailsFromCloud();
     }
