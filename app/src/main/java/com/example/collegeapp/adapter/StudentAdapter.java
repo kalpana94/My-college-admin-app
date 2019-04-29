@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.collegeapp.listener.OnRecyclerItemClickListener;
-
 import com.example.collegeapp.model.Student;
-
 import com.example.collegeapp.R;
 
 import java.util.ArrayList;
@@ -22,16 +20,11 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
 
     OnRecyclerItemClickListener recyclerItemClickListener;
 
-
-
     public StudentAdapter(Context context, int resources, ArrayList<Student> objects) {
         this.context = context;
         this.resources = resources;
         this.objects = objects;
     }
-
-
-
     @Override
     public StudentAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(resources, parent, false);

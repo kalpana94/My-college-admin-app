@@ -61,7 +61,6 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
     }
-
     @Override
     public void onClick(View v) {
         int id=v.getId();

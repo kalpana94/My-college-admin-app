@@ -60,12 +60,10 @@ public class CollegeActivity extends AppCompatActivity {
                     Toast.makeText(CollegeActivity.this, "Please Connect to Internet and Try Again", Toast.LENGTH_LONG).show();
                 }
             }
-
-
         });
-        Intent rcv = getIntent();
-        updateMode = rcv.hasExtra("keyCollege");
         if (updateMode) {
+            Intent rcv = getIntent();
+        updateMode = rcv.hasExtra("keyCollege");
             getSupportActionBar().setTitle("Update College");
             getSupportActionBar().setTitle("E-College");
             colleges = (College) rcv.getSerializableExtra("keyCollege");
@@ -87,7 +85,6 @@ public class CollegeActivity extends AppCompatActivity {
 
     }
     void SaveCollegesInCloudDb() {
-
         if (updateMode) {
             db.collection("Colleges").document(colleges.docID)
                     .set(colleges)
@@ -96,8 +93,9 @@ public class CollegeActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isComplete()) {
                                 Toast.makeText(CollegeActivity.this, "Updation Finished", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(CollegeActivity.this, CoursesActivity.class);
+                               Intent intent = new Intent(CollegeActivity.this, CoursesActivity.class);
                                 Intent intent1=new Intent(CollegeActivity.this,AllCollegeActivity.class);
+                                startActivity(intent1);
                                 startActivity(intent);
                                 finish();
                             }
@@ -134,11 +132,12 @@ public class CollegeActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    void clearFields() {
-        eTxtName.setText("");
-        eTxtCity.setText("");
-        eTxtState.setText("");
-        eTxtEmail.setText("");
-    }
+    //void clearFields() {
+        //eTxtName.setText("");
+        //eTxtCity.setText("");
+       // eTxtState.setText("");
+       // eTxtEmail.setText("");
+    //}
+
 
 }

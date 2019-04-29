@@ -34,35 +34,6 @@
           ]
         }
       }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1065205765690:android:7ac41867a6ce1a0d",
-        "android_client_info": {
-          "package_name": "com.example.e_collegeapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1065205765690-1hnqkbfqvpah76me6pk7ndnb0imdc5mf.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCutB9pc_IhNoOxSPcprlvm7mHMtTOgqkI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1065205765690-1hnqkbfqvpah76me6pk7ndnb0imdc5mf.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
     }
   ],
   "configuration_version": "1"
