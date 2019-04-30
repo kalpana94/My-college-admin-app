@@ -47,19 +47,6 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_info);
         getSupportActionBar().setTitle("E-College");
         initViews();
-        saveInfoInDb();
-    }
-    void saveInfoInDb(){
-        db.collection("Colleges").document(firebaseUser.getUid())
-                .collection("Info").add(collegeInfo)
-                .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        if(task.isComplete()){
-                            Toast.makeText(InfoActivity.this, "Info Saved in DB", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
     }
     @Override
     public void onClick(View v) {

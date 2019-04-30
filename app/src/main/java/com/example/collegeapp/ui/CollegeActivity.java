@@ -124,6 +124,4 @@ public class CollegeActivity extends AppCompatActivity {
         eTxtState.setText("");
         eTxtEmail.setText("");
     }
-
-
 }
