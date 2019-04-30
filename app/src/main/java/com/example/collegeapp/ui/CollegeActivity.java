@@ -61,10 +61,9 @@ public class CollegeActivity extends AppCompatActivity {
                 }
             }
         });
-        if (updateMode) {
-            Intent rcv = getIntent();
+        Intent rcv = getIntent();
         updateMode = rcv.hasExtra("keyCollege");
-            getSupportActionBar().setTitle("Update College");
+        if (updateMode) {
             getSupportActionBar().setTitle("E-College");
             colleges = (College) rcv.getSerializableExtra("keyCollege");
             txtTitle.setText("Update College");
@@ -82,7 +81,6 @@ public class CollegeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_college);
         getSupportActionBar().setTitle("E-College");
         initViews();
-
     }
     void SaveCollegesInCloudDb() {
         if (updateMode) {
@@ -93,25 +91,13 @@ public class CollegeActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isComplete()) {
                                 Toast.makeText(CollegeActivity.this, "Updation Finished", Toast.LENGTH_LONG).show();
-                               Intent intent = new Intent(CollegeActivity.this, CoursesActivity.class);
+                               //Intent intent = new Intent(CollegeActivity.this, CoursesActivity.class);
                                 Intent intent1=new Intent(CollegeActivity.this,AllCollegeActivity.class);
                                 startActivity(intent1);
-                                startActivity(intent);
+                               // startActivity(intent);
                                 finish();
-                            }
-                        }
-                    });
-
-        } else {
-            db.collection("Colleges").add(colleges)
-                    .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentReference> task) {
-                            if (task.isComplete()) {
-                                Toast.makeText(CollegeActivity.this, colleges.name + "Save college Sucessfully", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(CollegeActivity.this, HomeActivity.class);
-                                startActivity(intent);
-                                //finish();
+                            }else {
+                                Toast.makeText(CollegeActivity.this, "Updation Failed", Toast.LENGTH_LONG).show();
                             }
                         }
                     });
@@ -132,12 +118,12 @@ public class CollegeActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    //void clearFields() {
-        //eTxtName.setText("");
-        //eTxtCity.setText("");
-       // eTxtState.setText("");
-       // eTxtEmail.setText("");
-    //}
+    void clearFields() {
+        eTxtName.setText("");
+        eTxtCity.setText("");
+        eTxtState.setText("");
+        eTxtEmail.setText("");
+    }
 
 
 }

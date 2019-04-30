@@ -44,10 +44,7 @@ public class CoursesActivity extends AppCompatActivity implements OnRecyclerItem
     ProgressDialog progressDialog;
     
     public void initViews(){
-       
-       courses = new Courses();
-
-
+        courses = new Courses();
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -56,8 +53,6 @@ public class CoursesActivity extends AppCompatActivity implements OnRecyclerItem
         recyclerView = findViewById(R.id.CourseRecyclerView);
         recyclerView.setAdapter(coursesAdapter);
     }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +60,6 @@ public class CoursesActivity extends AppCompatActivity implements OnRecyclerItem
         initViews();
         fetchCourseFromCloud();
     }
-
     private void fetchCourseFromCloud() {
         db.collection("Colleges").document(firebaseUser.getUid()).collection("Courses").get()
                 .addOnCompleteListener(this, new OnCompleteListener<QuerySnapshot>() {
@@ -90,11 +84,9 @@ public class CoursesActivity extends AppCompatActivity implements OnRecyclerItem
                             recyclerView.setAdapter(coursesAdapter);
                             coursesAdapter.setOnRecyclerItemClickListener((OnRecyclerItemClickListener) CoursesActivity.this);
                             recyclerView.setLayoutManager(layoutManager);
-
                         }else {
                             Toast.makeText(CoursesActivity.this,"Some Error",Toast.LENGTH_LONG).show();
                         }
-
                     }
                 });
     }
@@ -105,7 +97,6 @@ public class CoursesActivity extends AppCompatActivity implements OnRecyclerItem
         courses = coursesArrayList.get(position);
         Toast.makeText(this,"You Clicked on Position:"+position,Toast.LENGTH_LONG).show();
         showOptions();
-
     }
     void deleteCoursesFromCloudDB(){
         db.collection("Colleges").document(firebaseUser.getUid()).collection("Courses").document(courses.doc_Id)
@@ -158,8 +149,5 @@ public class CoursesActivity extends AppCompatActivity implements OnRecyclerItem
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-
     }
-
-
 }

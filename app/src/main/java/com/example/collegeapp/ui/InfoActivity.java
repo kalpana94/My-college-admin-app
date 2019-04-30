@@ -84,10 +84,6 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent3= new Intent(InfoActivity.this,collegeInfoActivity.class);
                 startActivity(intent3);
                 break;
-
         }
-
-
-
     }
 }

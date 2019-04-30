@@ -56,12 +56,12 @@ public class AddCoursesActivity extends AppCompatActivity implements View.OnClic
             btnSubmit.setText("Update Course");
 
         }
-
-
-    }
+      }
     void saveCoursesInCloud() {
         if (updateMode) {
-            db.collection("Colleges").document(firebaseUser.getUid()).collection("Courses").document(courses.doc_Id).set(courses)
+            db.collection("Colleges").document(firebaseUser.getUid())
+                    .collection("Courses")
+                    .document(courses.doc_Id).set(courses)
                     .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -88,7 +88,6 @@ public class AddCoursesActivity extends AppCompatActivity implements View.OnClic
                             }
                         }
                     });
-
         }
     }
     @Override
@@ -97,12 +96,9 @@ public class AddCoursesActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_add_courses);
         initViews();
     }
-
-
     void clearFields(){
         etxtcourse.setText("");
-
-    }
+      }
 
     @Override
     public void onClick(View v) {

@@ -42,8 +42,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(LoginActivity .this, HomeActivity.class));
         }
     }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,9 +77,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             colleges.password = eTxtPassword.getText().toString();
             loginUser();
         }
-
-
-
     }
     void loginUser(){
         progressDialog.show();
@@ -103,7 +98,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
     }
-
 }
 
 

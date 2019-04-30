@@ -48,8 +48,6 @@ public class AllCollegeActivity extends AppCompatActivity  implements OnRecycler
         firebaseUser = firebaseAuth.getCurrentUser();
 
         college = new College();
-
-
     }
 
     @Override
@@ -81,7 +79,6 @@ public class AllCollegeActivity extends AppCompatActivity  implements OnRecycler
                                 college.docID = docId;
                                 colleges.add(college);
                                 Log.i("size", Integer.toString(colleges.size()));
-
                             }
                             getSupportActionBar().setTitle("Total Colleges: " + colleges.size());
                             collegeAdapter = new CollegeAdapter(AllCollegeActivity.this, R.layout.list_item, colleges);
@@ -114,8 +111,6 @@ public class AllCollegeActivity extends AppCompatActivity  implements OnRecycler
         college = colleges.get(position);
         Toast.makeText(this, "You Clicked on Position:" + position, Toast.LENGTH_LONG).show();
         showOptions();
-
-
     }
 
     void deleteCollegesFromCloudDB(){
@@ -184,7 +179,6 @@ public class AllCollegeActivity extends AppCompatActivity  implements OnRecycler
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-
     }
 
 }

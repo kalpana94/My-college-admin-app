@@ -54,10 +54,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         firebaseUser=auth.getCurrentUser();
-
-
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,11 +90,11 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isComplete()) {
-                            Toast.makeText(RegistrationActivity.this,colleges.name+"Registered Sucessfully",Toast.LENGTH_LONG).show();
+                         /* Toast.makeText(RegistrationActivity.this,colleges.name+"Registered Sucessfully",Toast.LENGTH_LONG).show();
                             progressDialog.dismiss();
                             Intent intent = new Intent(RegistrationActivity.this, HomeActivity.class);
                             startActivity(intent);
-                            finish();
+                            finish();*/
                             saveUserInCloudDB();
                         }
                     }
@@ -105,7 +102,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     }
 
     void saveUserInCloudDB() {
-       db.collection("Colleges").add(colleges)
+       /* db.collection("Colleges").add(colleges)
                 .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -118,7 +115,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         }
                     }
 
-                });
+                });*/
          firebaseUser= auth.getCurrentUser();
         db.collection("Colleges").document(firebaseUser.getUid()).set(colleges)
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
